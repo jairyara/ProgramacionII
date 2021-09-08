@@ -9,4 +9,17 @@ public class WeighingMachine {
     public void determineWeight() {
 
     }
+
+    public void changeUnitMeasure() {
+
+    }
+
+    public void turnOff() {
+
+    }
+
+    public void turnOn() {
+
+    }
+
 }

@@ -1,4 +1,5 @@
 public class Training {
+
     private String nameTraining;
     private String typeTraining;
     private int trainingQuotas;

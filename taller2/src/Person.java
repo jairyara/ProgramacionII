@@ -6,7 +6,6 @@ public class Person {
     private int height;
     private boolean genre;
 
-
     public void eat() {
 
     }
