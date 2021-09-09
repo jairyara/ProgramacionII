@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Account {
 
     private String name;
@@ -69,14 +71,13 @@ public class Account {
     }
 
     public void withdrawals(double quantity) {
-        if (quantity > balance) {
-            if (balance > 0) {
-                balance -= quantity;
-            } else {
-                System.out.println("No dispone de la cantidad de dinero que quiere retirar");
-            }
+        if (quantity < balance) {
+            balance -= quantity;
+            JOptionPane.showMessageDialog(null, "Ha retirado $: " + quantity);
+
+            JOptionPane.showMessageDialog(null, "Saldo actual $:" + balance);
         } else {
-            System.out.println("Excede la cantidad que tiene en la cuenta");
+            JOptionPane.showMessageDialog(null,"Excede la cantidad que tiene en la cuenta");
         }
 
     }

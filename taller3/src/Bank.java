@@ -69,7 +69,7 @@ public class Bank {
         JOptionPane.showMessageDialog(null, "Cuenta creada correctamente \n" + "Datos registrados \n"
                 + "Nombre y apellido: " + account.getName() + " " + account.getLastName() +
                 "\n Identificacion: " + account.getIdNumber() +
-                "\n Celular: " + account.getPhone() + "email: " + account.getEmail() +
+                "\n Celular: " + account.getPhone() + "\n email: " + account.getEmail() +
                 " \n Saldo inicial: $" + account.getBalance());
     }
 
@@ -84,11 +84,7 @@ public class Bank {
     public void withDrawal() {
         double newWithDrawal;
         newWithDrawal = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el valor a retirar"));
-
         account.withdrawals(newWithDrawal);
-        JOptionPane.showMessageDialog(null, "Ha retirado $: " + newWithDrawal);
-
-        JOptionPane.showMessageDialog(null, "Saldo actual $:" + account.getBalance());
     }
 
 
