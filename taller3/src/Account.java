@@ -40,15 +40,44 @@ public class Account {
         return balance;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setIdNumber(int idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public void setPhone(long phone) {
+        this.phone = phone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     public void deposit(double quantity) {
         balance += quantity;
     }
 
-    public void withdrawals (double quantity) {
-        if (balance > 0 ) {
-            balance -= quantity;
+    public void withdrawals(double quantity) {
+        if (quantity > balance) {
+            if (balance > 0) {
+                balance -= quantity;
+            } else {
+                System.out.println("No dispone de la cantidad de dinero que quiere retirar");
+            }
         } else {
-            System.out.println("No dispone de la cantidad de dinero que quiere retirar");
+            System.out.println("Excede la cantidad que tiene en la cuenta");
         }
+
     }
 }

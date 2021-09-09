@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class Bank {
 
-    Account account;
+    Account account = new Account("", "", 0, 0, "",0);
 
     public void menu() {
         String[] menu = {"1 Crear cuenta", "2 Retirar", "3 Consignar", "4 Consultar saldo", "5 Salir"};
@@ -60,7 +60,12 @@ public class Bank {
         long phone = Long.parseLong(JOptionPane.showInputDialog(null, "Ingrese su numero de celular"));
         String email = JOptionPane.showInputDialog(null, "Ingrese su correo electronico");
         double deposit = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el deposito inicial de la cuenta"));
-        account = new Account(name, lastName, idNumber, phone, email, deposit);
+        account.setName(name);
+        account.setLastName(lastName);
+        account.setIdNumber(idNumber);
+        account.setPhone(phone);
+        account.setEmail(email);
+        account.setBalance(deposit);
         JOptionPane.showMessageDialog(null, "Cuenta creada correctamente \n" + "Datos registrados \n"
                 + "Nombre y apellido: " + account.getName() + " " + account.getLastName() +
                 "\n Identificacion: " + account.getIdNumber() +
@@ -80,12 +85,8 @@ public class Bank {
         double newWithDrawal;
         newWithDrawal = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el valor a retirar"));
 
-        if (newWithDrawal < account.getBalance()) {
-            account.withdrawals(newWithDrawal);
-            JOptionPane.showMessageDialog(null, "Ha retirado $: " + newWithDrawal);
-        } else {
-            JOptionPane.showMessageDialog(null, "No cuenta con el saldo para realizar el retiro del monto solicitado");
-        }
+        account.withdrawals(newWithDrawal);
+        JOptionPane.showMessageDialog(null, "Ha retirado $: " + newWithDrawal);
 
         JOptionPane.showMessageDialog(null, "Saldo actual $:" + account.getBalance());
     }
