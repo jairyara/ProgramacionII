@@ -1,8 +1,6 @@
-public class RealEstate {
+public class Inmueble extends Persona {
 
-    private int idOwner;
-    private String nameOwner;
-    private String lastNameOwner;
+
     private String cityProperty;
     private String addressProperty;
     private boolean typeProperty;
@@ -11,40 +9,14 @@ public class RealEstate {
     private double valueRentPropertyCommission;
     private boolean availableProperty;
 
-    public RealEstate(int idOwner, String nameOwner, String lastNameOwner, String cityProperty, String addressProperty, boolean typeProperty, int valueBuyProperty, int valueRentPropertyNoCommission, boolean availableProperty) {
-        this.idOwner = idOwner;
-        this.nameOwner = nameOwner;
-        this.lastNameOwner = lastNameOwner;
+    public Inmueble(long identificacion, String nombre, String apellido, String cityProperty, String addressProperty, boolean typeProperty, int valueBuyProperty, int valueRentPropertyNoCommission, boolean availableProperty) {
+        super(identificacion, nombre, apellido );
         this.cityProperty = cityProperty;
         this.addressProperty = addressProperty;
         this.typeProperty = typeProperty;
         this.valueBuyProperty = valueBuyProperty;
         this.valueRentPropertyNoCommission = valueRentPropertyNoCommission;
         this.availableProperty = availableProperty;
-    }
-
-    public int getIdOwner() {
-        return idOwner;
-    }
-
-    public void setIdOwner(int idOwner) {
-        this.idOwner = idOwner;
-    }
-
-    public String getNameOwner() {
-        return nameOwner;
-    }
-
-    public void setNameOwner(String nameOwner) {
-        this.nameOwner = nameOwner;
-    }
-
-    public String getLastNameOwner() {
-        return lastNameOwner;
-    }
-
-    public void setLastNameOwner(String lastNameOwner) {
-        this.lastNameOwner = lastNameOwner;
     }
 
     public String getCityProperty() {
@@ -104,9 +76,12 @@ public class RealEstate {
     }
 
     public void printPropertyInformation() {
+        System.out.println();
+        System.out.println("-------------------------------------------------------");
+        System.out.println();
         System.out.println("Detalles del inmueble");
-        System.out.println("Identificacion del propietario: " + idOwner);
-        System.out.println("Nombres y apellidos del propietario: " + nameOwner + " " + lastNameOwner);
+        System.out.println("Identificacion del propietario: " + getIdentificacion());
+        System.out.println("Nombres y apellidos del propietario: " + getNombre() + " " + getApellido());
         System.out.println("Ciudad del inmueble: " + cityProperty);
         System.out.println("Direccion del inmueble: " + addressProperty);
         String typePropertyString;
@@ -117,8 +92,8 @@ public class RealEstate {
         }
         System.out.println("Tipo de inmueble: " + typePropertyString);
         System.out.println("Valor comercial del inmueble: " + valueBuyProperty);
-        System.out.println("Valor arrendamiento del inmueble sin comision: " + valueRentPropertyNoCommission);
-        System.out.println("Valor arrendamiento del inmueble con comision: " + getValueRentPropertyCommission() );
+        System.out.println("Valor arrendamiento del inmueble sin comision: $" + valueRentPropertyNoCommission);
+        System.out.println("Valor arrendamiento del inmueble con comision: $" + getValueRentPropertyCommission() );
         String availablePropertyString;
         if (availableProperty) {
             availablePropertyString = "Disponible";
@@ -126,6 +101,9 @@ public class RealEstate {
             availablePropertyString = "No disponible";
         }
         System.out.println("Disponibilidad del inmueble: " + availablePropertyString);
+        System.out.println();
+        System.out.println("-------------------------------------------------------");
+        System.out.println();
     }
 
     //Metodo para verificar si es posible arrendar a partir de un monto dado
@@ -150,6 +128,5 @@ public class RealEstate {
         }
         setValueRentPropertyCommission(setCommission);
     }
-
 
 }
